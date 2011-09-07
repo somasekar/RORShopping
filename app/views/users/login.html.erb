@@ -1,0 +1,45 @@
+<body bgcolor="black">
+  <center>
+    <center> <font color="white" size="5"><b><%= "Dear" %></b> </font> <font color="yellow" size="4"><%= "User" %> </font> <font color="white" size="4"><%= "Please Sign In Here..." %></font></center>
+  <table border="1" bgcolor="AliceBlue" style="margin-top: 50px;">
+  <% form_tag do %>
+    <%= stylesheet_link_tag "applyme" %>
+    <font color="red"> <b><%= flash[:notice] %></b></font>
+    <tr bgcolor="black">
+      <td colspan ="2">
+        <font color="white"><b><center>USER LOGIN</center></b></font>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label><font color="black">User Name</font></label>
+    </td>
+
+  
+      <td>
+        <%= text_field_tag :username, params[:username] %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="password"><font color="black">Password</font></label>
+      </td>
+   
+ 
+      <td>
+        <%= password_field_tag :password, params[:password] %>
+      </td>
+    </tr>
+    <tr bgcolor="black">
+      <td colspan="2">
+        <center>
+        <%= submit_tag "Log in" %>
+        <%=link_to("Register",{:action=>'new'}) %>
+        </center>
+      </td>
+ 
+    </tr>
+  <% end %>
+  </table>
+</center>
+</body>

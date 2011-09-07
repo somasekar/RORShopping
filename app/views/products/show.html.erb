@@ -1,0 +1,48 @@
+<body bgcolor="black" style="margin-top: 100px;">
+  <center><font size= "5px" color="white"><%= "Dear!" %> </font> <font color="yellow" size ="4"><b><%= "Admin" %></b></font>  <font size= "4px" color="white"><%= "Please Verify Your Product Details..." %></font></center>
+<center>
+  <table border="1" bgcolor="AliceBlue" style="margin-top: 50px;">
+  <tr bgcolor="black">
+    <td colspan="3"><font color="white"><b><center>PRODUCT DETAILS</center></b></font></td>
+  </tr>
+  <tr>
+    <td>Si No</td>
+    <td><font color="black"><%= @product.id %></td>
+  </tr>
+  <tr>
+    <td>Category</td>
+    <td><font color="black"><%= @product.product_cat %></td>
+  </tr>
+  <tr>
+    <td>Sub Category</td>
+    <td><font color="black"><%= @product.product_sub_cat %></td>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td><font color="black"><%= @product.product_name %></td>
+    </tr>
+   <tr>
+    <td>Model</td>
+    <td><font color="black"><%= @product.product_model %></td>
+  </tr>
+   <tr>
+    <td>Company</td>
+    <td><font color="black"><%= @product.product_company %></td>
+  </tr>
+   <tr>
+    <td>Available Stock</td>
+    <td><font color="black"><%= @product.product_stock %></td>
+  </tr>
+   <tr>
+    <td>Price Per Piece</td>
+    <td><font color="black"><%= @product.price_per_piece %></td>
+  </tr>
+   <tr bgcolor="black">
+      <td colspan="2" class="rightalign">
+        <div class="left-align"><%= link_to "Products List", :action => "index"%></div>
+        <%= link_to "Edit", edit_product_path(@product)%>
+      </td>
+    </tr>
+</table>
+</center>
+</body>

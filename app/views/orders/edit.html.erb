@@ -1,0 +1,35 @@
+<body bgcolor="black">
+<center>
+  <br /><br />
+  <font size= "5px" color="white"><%= "Dear!" %> </font> <font color="yellow" size ="4"><b><%= "Admin" %></b></font>  <font size= "4px" color="white"><%= "Please Update Your Product Details..." %></font>
+<table border="1"  style="margin-top: 60px;" bgcolor="AliceBlue">
+ <%= form_for @order do |f| %>
+  <tr bgcolor="black">
+    <td colspan="3"><font color="white"><b><center>ORDER DETAILS</center></b></font></td>
+  </tr>
+   <%#*<tr>%>
+    <%#*<td>Order Number</td>%>
+    <%#*<td><%= f.text_field :order_number %>
+  <%#*</tr>%>
+  <%#*<tr>%>
+    <%#*<td>User Id</td>%>
+    <%#*<td><%= f.text_field :user_id %>
+  <%#*</tr>%>
+  <tr>
+  <td>Shipping Address</td>
+  <td><%= f.text_area :shipping_address,:rows => 3, :cols => 35 %></td>
+</tr>
+<tr>
+  <td>Billing Address</td>
+  <td><%= f.text_area :billing_address, :rows => 3, :cols => 35 %></td>
+</tr>
+  <tr bgcolor="black">
+        <td colspan="3">
+          <center> <%= f.submit "Update" %>
+            <%= f.submit("Reset",{:name => 'reset' ,:type => "reset"}) %></center>
+        </td>
+      </tr>
+      <% end %>
+</table>
+</center>
+</body>

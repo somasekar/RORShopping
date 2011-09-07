@@ -1,0 +1,37 @@
+<body bgcolor="black">
+
+  <%= stylesheet_link_tag "applyme" %>
+  <center>
+    <table border ="1" bgcolor="AliceBlue" style="margin-top: 100px;">
+      <tr bgcolor="black">
+        <td colspan="6"><center><font color="white"><b>ORDERS LIST</b></font></center></td>
+      </tr>
+      <tr bgcolor="black">
+        <td><font color="white">Order Id</font></td>
+        <td><font color="white">Order Number</font></td>
+        <td><font color="white">User Id</font></td>
+        <td><font color="white">Shipping Address</font></td>
+        <td><font color="white">Billing Address</font></td>
+        <td><font color="white"><center>Action</center></font></td>
+      </tr>
+      <% for order in @orders %>
+  <%#=  raise @orders.inspect %>
+        <tr>
+          <td><center><%= order.id %></center></font></td>
+          <td><%= order.order_number %></td>
+          <td><%= order.user_id %></td>
+          <td><%= order.shipping_address %></td>
+          <td><%= order.billing_address %></td>
+          <td bgcolor="LightSlateGray "><%= link_to("Delete", order_path(order.id), :method => :delete, :confirm => "Are you sure to delete this record?") %> |
+            <%= link_to "Edit", edit_order_path(order) %> |
+            <%= link_to "Show", order_path(order) %> |
+          <%= link_to "Order Line Items", :controller=> "orderlineitems", :action => "index" %></td>
+        </tr>
+      <% end %>
+      <tr bgcolor="black">
+
+        <td colspan="11"><font color="white"><b><center><%= "Number of Users Ordered :" %> <font color="yellow"><%= @orders.count %></font></center></b></font></td>
+      </tr>
+    </table>
+  </center>
+</body>

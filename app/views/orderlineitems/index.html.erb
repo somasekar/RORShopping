@@ -1,0 +1,34 @@
+<body bgcolor="black">
+    <%= stylesheet_link_tag "applyme" %>
+<center>
+  <table border ="1" bgcolor="AliceBlue" style="margin-top: 100px;">
+    <tr bgcolor="black">
+    <td colspan="6"><center><font color="white"><b>ORDERS LINE ITEMS</b></font></center></td>
+    </tr>
+  <tr bgcolor="black">
+    <td><font color="white">Si No</font></td>
+    <td><font color="white">User Id</font></td>
+    <td><font color="white">OrderId</font></td>
+    <td><font color="white">Product Id</font></td>
+    <td><font color="white">Quantity</font></td>
+    <td><font color="white"><center>Action</center></font></td>
+  </tr>
+  <% for olitem in @olitems %>
+    <tr>
+      <td><center><%= olitem.id %></center></font></td>
+      <td><%= olitem.user_id %></td>
+      <td><%= olitem.order_id %></td>
+      <td><%= olitem.product_id %></td>
+      <td><%= olitem.quantity %></td>
+      <td bgcolor="LightSlateGray"><%= link_to("Delete", orderlineitem_path(olitem.id), :method => :delete, :confirm => "Are you sure to delete this record?") %> |
+            <%= link_to "Edit", edit_orderlineitem_path(olitem) %> |
+            <%= link_to "Show", orderlineitems_path(olitem) %></td>
+    </tr>
+    <% end %>
+     <tr bgcolor="black">
+
+        <td colspan="11"><font color="white"><b><center><%= "Number of Users Ordered :" %> <font color="yellow"><%= @olitems.count %></font></center></b></font></td>
+      </tr>
+</table>
+</center>
+</body>

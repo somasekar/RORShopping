@@ -1,0 +1,48 @@
+<table border ="1" bgcolor="AliceBlue">
+  <tr bgcolor="black">
+    <td colspan="2"><center><font color="white"><b>PRODUCTS FORM</b></font></center></td>
+  </tr>
+  <tr>
+    <td>Product Category</td>
+    <td><%= f.select :product_cat, options_for_select([["select",""],["Mobiles","1"],["Televisions","2"],["Refrigerators","3"],["Home Theaters","4"],["DVD / CD","5"],["Kitchen","6"]]) %></td>
+
+    <%#*<td><%= f.text_field :product_cat %>
+  </tr>
+   <tr>
+    <td>Product Sub Category</td>
+    <%#= f.select :product_sub_cat, options_for_select(%w(Nokia Samsung Lg Sony_Ericsson Micromax Onida)) %>
+     <td><%= f.select :product_sub_cat, options_for_select([["select",""],["Nokia","1"],["Samsung","2"],["Lg","3"],["Sony_Ericsson","4"],["Micromax","5"],["Onida","6"]]) %></td>
+    
+
+    <%#*<td><%= f.text_field :product_sub_cat %>
+  </tr>
+    <tr>
+    <td>Product Name</td>
+    <%#= f.select :product_name, options_for_select(%w(Led Lcd Normal Ordinary Monochrome Color SmartPhone), {:prompt => "select"}) %>
+    <td><%= f.select :product_name, options_for_select([["select",""],["LED","1"],["LCD","2"],["Color","3"],["Monochrome","4"],["Smart Phone","5"]]) %></td>
+  </tr>
+    <tr>
+  <td>Product Model</td>
+   <%#= f.select :product_model, options_for_select(%w(5233 5230 2630 1102 5102 5211)) %>
+    <td><%= f.select :product_model, options_for_select([["select",""],["5233","1"],["5230","2"],["2630","3"],["1102","4"],["5102","5"],["5211","6"]]) %></td>
+  </tr>
+   <tr>
+    <td>Company</td>
+    <%#*<td><%= f.text_field :product_company %>
+    <td><%= f.select :product_company, options_for_select([["select",""],["Nokia","1"],["Samsung","2"],["Lg","3"],["Sony_Ericsson","4"],["Micromax","5"],["Onida","6"]]) %></td>
+  </tr>
+    <tr>
+    <td>Available Stock</td>
+    <td><%= f.text_field :product_stock %></td>
+  </tr>
+   <tr>
+    <td>Price Per Piece</td>
+    <td><%= f.text_field :price_per_piece %></td>
+  </tr>
+   <tr>
+ <td colspan="2" bgcolor="black">
+     <center><%=  f.submit "Save" %>
+  <%= f.submit("Reset", {:name => 'reset' ,:type => "reset" }) %></center>
+      </td>
+    </tr>
+</table>

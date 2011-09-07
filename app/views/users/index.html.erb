@@ -1,0 +1,45 @@
+<body bgcolor="black">
+  <center>
+    <table border ="1" bgcolor="AliceBlue" style="margin-top: 100px;">
+      <tr bgcolor="black">
+        <td colspan="11"> <div class="left-align"><fontcolr="white"> <%=link_to("Sign out",{:action=>'login'}) %></font></div><div><font color="yellow"><b>&nbsp;&nbsp;<%= flash[:notice] %></b></font></div><center><div><font color="white"><b>USERS LIST</b></font></div></td>
+      </tr>
+      <tr bgcolor="black">
+        <td><font color="white">User Id</font></td>
+        <td><font color="white">Fisrt Name</font></td>
+        <td><font color="white">Last Name</font></td>
+        <td><font color="white">Present Address</font></td>
+        <td><font color="white">Permanent Address</font></td>
+        <td><font color="white">Gender</font></td>
+        <td><font color="white">Date of birth</font></td>
+        <td><font color="white">Marital Status</font></td>
+        <td><font color="white">Phone Number</font></td>
+        <td><font color="white">Activation</font></td>
+        <td><font color="white">Action</font></td>
+      </tr>
+      <% for user in @users%>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.first_name %></td>
+          <td><%= user.last_name %></td>
+          <td><%= user.present_address %></td>
+          <td><%= user.permanent_address %></td>
+          <td><%= user.gender %></td>
+          <td><%= user.dob %></td>
+          <td><%= user.marital_status %></td>
+          <td><%= user.phone_number %></td>
+          <td colospan="2" bgcolor="LightSlateGray">
+            <center><%= link_to "Active", activate_user_path(user.id) %>
+              <%= link_to "Deactive", deactivate_user_path(user.id) %></center></td>
+          <td bgcolor="LightSlateGray"><%= link_to("Delete",user_path(user), :method => :delete, :confirm => "Are you sure to delete this record?") %> |
+            <%= link_to "Edit", edit_user_path(user) %> |
+            <%= link_to "Show", user_path(user) %></td>
+        </tr>
+      <% end %>
+      <tr bgcolor="black">
+
+        <td colspan="11"><font color="white"><b><center><%= "Number of users registered :" %> <font color="yellow"><%= @users.count %></font></center></b></font></td>
+      </tr>
+    </table>
+  </center>
+</body>

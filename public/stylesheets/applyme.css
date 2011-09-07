@@ -1,0 +1,13 @@
+a:link {color:white;}    /* unvisited link */
+a:visited {color:white;} /* visited link */
+a:hover {color:	#E8E8E8;}   /* mouse over link */
+
+
+.rightalign {
+    text-align: right;
+}
+.left-align {
+    float: left;
+}
+
+

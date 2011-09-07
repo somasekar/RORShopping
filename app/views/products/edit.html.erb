@@ -1,0 +1,47 @@
+<body bgcolor="black">
+<center>
+  <br /><br />
+  <font size= "5px" color="white"><%= "Dear!" %> </font> <font color="yellow" size ="4"><b><%= "Admin" %></b></font>  <font size= "4px" color="white"><%= "Please Update Your Product Details..." %></font>
+<table border="1"  style="margin-top: 60px;" bgcolor="AliceBlue">
+ <%= form_for @product do |f| %>
+  <tr bgcolor="black">
+    <td colspan="3"><font color="white"><b><center>PRODUCT DETAILS</center></b></font></td>
+  </tr>
+   <tr>
+    <td>Product Category</td>
+    <td><%= f.text_field :product_cat %></td>
+  </tr>
+   <tr>
+    <td>Product Sub Category</td>
+    <td><%= f.text_field :product_sub_cat %></td>
+  </tr>
+    <tr>
+    <td>Product Name</td>
+    <td><%= f.text_field :product_name %></td>
+  </tr>
+    <tr>
+  <td>Product Model</td>
+    <td><%= f.text_field :product_model %></td>
+  </tr>
+   <tr>
+    <td>Company</td>
+    <td><%= f.text_field :product_company %></td>
+  </tr>
+    <tr>
+    <td>Available Stock</td>
+    <td><%= f.text_field :product_stock %></td>
+  </tr>
+   <tr>
+    <td>Price Per Piece</td>
+    <td><%= f.text_field :price_per_piece%></td>
+   </tr>
+  <tr bgcolor="black">
+        <td colspan="3">
+          <center> <%= f.submit "Update" %>
+            <%= f.submit("Reset",{:name => 'reset' ,:type => "reset"}) %></center>
+        </td>
+      </tr>
+      <% end %>
+</table>
+</center>
+</body>

@@ -1,0 +1,64 @@
+<body bgcolor="black">
+<center>
+
+  <br />
+    <font size= "5px" color="white"><%= "Dear!" %> </font> <font color="yellow"><b><%= "#{@user.first_name.upcase}  #{@user.last_name.upcase}"%></b></font>  <font size= "4px" color="white"><%= "Please Update Your Account Details..." %></font>
+    <br />
+    <br />
+  <table border="1" bgcolor="AliceBlue">
+    <%= form_for @user do |f| %>
+
+      <tr bgcolor="black">
+        <td colspan="3"><font color="white"><b><center>USER DETAILS</center></b></font></td>
+      </tr>
+      <tr><td>First Name</td>
+        <td><%= f.text_field :first_name  %></td>
+      </tr>
+      <tr>
+        <td>Last Name</td>
+        <td><%= f.text_field :last_name %></td>
+      </tr>
+      <tr>
+        <td>User Name</td>
+        <td><%= f.text_field :username %></td>
+      </tr>
+      <tr>
+        <td>Password</td>
+        <td><%= f.password_field :password %></td>
+      </tr>
+      <tr>
+        <td>Present Address</td>
+        <td><%= f.text_area:present_address, :rows => 3, :cols => 34 %></td>
+      </tr>
+      <tr>
+        <td>Permanent Address</td>
+        <td><%= f.text_area :permanent_address, :rows => 3, :cols => 34 %></td>
+      </tr>
+      <tr>
+        <td>Gender</td>
+        <td>Male<%= f.radio_button(:gender, "Male") %> Female<%= f.radio_button(:gender, "Female") %></td>
+      </tr>
+      <tr>
+        <td>Date of birth</td>
+        <td>
+          <%= f.date_select( "dob", :order => [:day, :month, :year], :include_blank => false )%>
+        </td>
+      <tr>
+        <td>Marital Status</td>
+        <td>Married<%= f.radio_button(:marital_status, "Married") %>Unmarried:<%= f.radio_button(:marital_status, "Unmarried") %></td>
+      </tr>
+      </tr>
+      <tr>
+        <td>Phone Number</td>
+        <td><%= f.text_area :phone_number, :rows => 3, :cols => 34 %></td>
+      </tr>
+      <tr bgcolor="black">
+        <td colspan="3">
+          <center> <%= f.submit "Update" %>
+            <%= f.submit("Reset",{:name => 'reset' ,:type => "reset"}) %></center>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</center>
+</body>

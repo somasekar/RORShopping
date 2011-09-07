@@ -1,0 +1,27 @@
+<br /><br />
+<body bgcolor="black">
+  <center>
+    <% if @order.errors.any? %>
+      <div id="errorExplanation">
+        <table border="1" border color="white">
+          <tr> <td> <b><font color="red"><%= pluralize(@order.errors.count, "error") %></font> <font color="red">prohibited this record from being saved</font></b></td></tr>
+          <ul>
+            <% @order.errors.full_messages.each do |msg| %>
+              <tr><td><li><font color="white"><%= msg %></font></li></td></tr>
+            <% end %>
+          </ul>
+        </table>
+      </div>
+    <% end %>
+  </center
+  <br />
+<center>
+  <font color="white" size="5"><b><%= "Dear" %></b> </font> <font color="yellow" size="4"><%= "Admin" %> </font> <font color="white" size="4"><%= "Please Create Products Here..." %></font>
+  <br /><br /><br /><br />
+<div id="user">
+<%  form_for @product do |f| %>
+  <%= render :partial => "form", :locals => {:f => f} %>
+  <%end%>
+</div>
+</center>
+</body>

@@ -1,0 +1,13 @@
+<br /><br />
+<body bgcolor="black">
+   <%= stylesheet_link_tag "applyme" %>
+<center>
+  <font color="white" size="5"><b><%= "Dear" %></b> </font> <font color="yellow" size="4"><%= "User" %> </font> <font color="white" size="4"><%= "Please Create Your Orders Here..." %></font>
+  <br /><br /><br /><br />
+<div id="order">
+<% form_for @order do |f| %>
+  <%= render :partial => "form", :locals => {:f => f} %>
+  <%end%>
+</div>
+</center>
+</body>

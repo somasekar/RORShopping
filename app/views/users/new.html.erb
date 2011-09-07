@@ -1,0 +1,33 @@
+<body bgcolor="black">
+  <center>
+    <% if @user.errors.any? %>
+      <div id="errorExplanation">
+        <table border="1" border color="white">
+          <tr> <td> <b><font color="red"><%= pluralize(@user.errors.count, "error") %></font> <font color="red">prohibited this record from being saved</font></b></td></tr>
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+              <tr><td><li><font color="white"><%= msg %></font></li></td></tr>
+            <% end %>
+          </ul>
+        </table>
+      </div>
+    <% end %>
+  </center
+   <br /> <br />
+    <center>
+  <font color="white" size="5"><b><%= "Dear" %></b> </font> <font color="yellow" size="4"><%= "User" %> </font> <font color="white" size="4"><%= "Please Register Here..." %></font>
+</center>
+  <br />
+   <br /> <br />
+
+  <center>
+    <div id="user">
+      <%  form_for @user do |f| %>
+        <%= render :partial => "form", :locals => {:f => f} %>
+        <table border="1">
+        </table>
+  <%#= raise @user.inspect %>
+      <%end%>
+    </div>
+  </center>
+</body>

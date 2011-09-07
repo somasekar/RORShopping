@@ -1,0 +1,27 @@
+<table border ="1" bgcolor="AliceBlue">
+  <tr bgcolor="black">
+    <td colspan="2"><div><%= link_to "Sign Out",:controller => "users", :action => "login"%></div><center><font color="white"><b>USER ORDER FORM</b></font></center></td>
+  </tr>
+  <%#*<tr>%>
+    <%#*<td>Order Number</td>%>
+    <%#*<td><%= f.text_field :order_number %>
+  <%#*</tr>%>
+  <%#*<tr>%>
+    <%#*<td>User Id</td>%>
+    <%#*<td><%= f.text_field :user_id %>
+  <%#*</tr>%>
+  <tr>
+  <td>Shipping Address</td>
+  <td><%= f.text_area :shipping_address, :rows => 3, :cols => 35  %></td>
+</tr>
+<tr>
+  <td>Billing Address</td>
+  <td><%= f.text_area :billing_address, :rows => 3, :cols => 35  %></td>
+</tr>
+    <tr bgcolor="black">
+      <td colspan="2">
+        <center> <%= f.submit "Save" %>
+  <%= f.submit("Reset", {:name => 'reset' ,:type => "reset" }) %></center>
+      </td>
+    </tr>
+</table>

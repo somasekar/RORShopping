@@ -1,0 +1,56 @@
+<table border ="1" bgcolor="AliceBlue">
+  <tr bgcolor="black">
+    <td colspan="2"><div><%= link_to "Sign In",:controller => "users", :action => "login"%></div><center><font color="white"><b>REGISTRATION FORM</b></font></center></td>
+  </tr>
+  <tr>
+    <td>First Name</td>
+    <td><%= f.text_field :first_name  %></td>
+  </tr>
+  <tr>
+    <td>Last Name</td>
+    <td><%= f.text_field :last_name %></td>
+  </tr>
+  <tr>
+  <td>User Name</td>
+  <td><%= f.text_field :username %></td>
+</tr>
+<tr>
+  <td>Password</td>
+  <td><%= f.password_field :password %></td>
+</tr>
+  <tr>
+    <td>Present Address</td>
+    <td><%= f.text_area :present_address, :rows => 3, :cols => 35 %></td>
+  </tr>
+  <tr>
+    <td>Permanent Address</td>
+    <td><%= f.text_area :permanent_address, :rows => 3, :cols => 35 %></td>
+  </tr>
+  <tr>
+    <td>Gender</td>
+    <td>Male<%= f.radio_button(:gender, "Male") %>Female<%= f.radio_button(:gender, "Female") %></td>
+  </tr>
+  <tr>
+    <td>Date of birth</td>
+    <td>
+    <%= date_select("user", "dob", :order => [:day, :month, :year], :include_blank => false )%>
+     <%#= date_select("user", "dob", :order => [:month, :day, :year])%>
+    
+
+    </td>
+  <tr>
+    <td>Marital Status</td>
+    <td>Married<%= f.radio_button(:marital_status, "Married") %>Unmarried<%= f.radio_button(:marital_status, "Unmarried") %></td>
+  </tr>
+</tr>
+<tr>
+  <td>Contact Number</td>
+  <td><%= f.text_field :phone_number %></td>
+</tr>
+    <tr bgcolor="black">
+      <td colspan="2">
+        <center> <%= f.submit "Save" %>
+  <%= f.submit("Reset", {:name => 'reset' ,:type => "reset" }) %></center>
+      </td>
+    </tr>
+</table>

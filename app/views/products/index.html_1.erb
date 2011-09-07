@@ -1,0 +1,41 @@
+<body bgcolor="black">
+    
+<center>
+  <table border ="1" bgcolor="AliceBlue" style="margin-top: 100px;">
+    <tr bgcolor="black">
+    <td colspan="9"><center><font color="white"><b>PRODUCT LIST</b></font></center></td>
+    </tr>
+  <tr bgcolor="black">
+    <td><font color="white">Id</font></td>
+    <td><font color="white">Category </font></td>
+    <td><font color="white">Sub Category</font></td>
+    <td><font color="white">Type</font></td>
+    <td><font color="white">Model</font></td>
+    <td><font color="white">Company</font></td>
+    <td><font color="white">Stock</font></td>
+    <td><font color="white">Price Per Product</font></td>
+    
+    <td><font color="white"><center>Action</center></font></td>
+  </tr>
+  <% for products in @products %>
+    <tr>
+      <td><center><%= products.id %></center></font></td>
+      <td><%= products.product_cat %></td>
+      <td><%= products.product_sub_cat %></td>
+      <td><%= products.product_name %></td>
+      <td><%= products.product_model %></td>
+      <td><%= products.product_company %></td>
+      <td><%= products.product_stock %></td>
+      <td><%= products.price_per_piece %></td>
+      <td bgcolor="LightSlateGray "><%= link_to("Delete",product_path(products), :method => :delete, :confirm => "Are you sure to delete this Product ?") %> |
+            <%= link_to "Edit", edit_product_path(products) %> |
+            <%= link_to "Show", product_path(products) %></td>
+    </tr>
+    <% end %>
+     <tr bgcolor="black">
+
+        <td colspan="11"><font color="white"><b><center><%= "Number of products added :" %> <font color="yellow"><%= @products.count %></font></center></b></font></td>
+      </tr>
+</table>
+</center>
+</body>

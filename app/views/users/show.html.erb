@@ -1,0 +1,64 @@
+<body bgcolor="black">
+<center>
+  <br />
+  <font size= "5px" color="white"><%= "Dear!" %> </font> <font color="yellow"><b><%= "#{@user.first_name.upcase}  #{@user.last_name.upcase}"%></b></font>  <font size= "4px" color="white"><%= "Please Verify Your Account Details..." %></font>
+  <br />
+  <br />
+  <br />
+  <table border="1" bgcolor="AliceBlue">
+    <tr bgcolor="black">
+      <td colspan="3"><font color="white"><b><center>USERS INFORMATION</center></b></font></td>
+    </tr>
+    <tr>
+      <td>Si No.</td>
+      <td><%= @user.id %></td>
+    </tr>
+    <tr>
+      <td>First Name</td>
+      <td><%= @user.first_name %></td>
+    </tr>
+    <tr>
+      <td>Last Name</td>
+      <td><%= @user.last_name %></td>
+    </tr>
+    <tr>
+      <td>User Name</td>
+      <td><%= @user.username %></td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td><%= @user.password %></td>
+    </tr>
+    <tr>
+      <td>Present Address</td>
+      <td><%= @user.present_address %></td>
+    </tr>
+    <tr>
+      <td>Permanent Address</td>
+      <td><%= @user.permanent_address %></td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td><%= @user.gender %></td>
+    </tr>
+     <tr>
+      <td>Date of birth</td>
+      <td><%= @user.dob %></td>
+    </tr>
+    <tr>
+      <td>Marital Status</td>
+      <td><%= @user.marital_status %></td>
+    </tr>
+    <tr>
+      <td>Phone Number</td>
+      <td><%= @user.phone_number %></td>
+    </tr>
+    <tr bgcolor="black">
+      <td colspan="2" class="rightalign">
+        <div class="left-align"><%= link_to "Users List", :action => "index"%></div>
+       <%= link_to "Edit", edit_user_path(@user) %>
+      </td>
+    </tr>
+  </table>
+</center>
+</body>

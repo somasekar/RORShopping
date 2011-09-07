@@ -1,0 +1,66 @@
+<body bgcolor="black">
+  <%= form_tag(:controller=> "orders", :action => "create") %>
+    <center>
+    <% if @order.errors.any? %>
+      <div id="errorExplanation">
+        <table border="1" border color="white">
+          <tr> <td> <b><font color="red"><%= pluralize(@order.errors.count, "error") %></font> <font color="red">prohibited this record from being saved</font></b></td></tr>
+          <ul>
+            <% @products.errors.full_messages.each do |msg| %>
+              <tr><td><li><font color="white"><%= msg %></font></li></td></tr>
+            <% end %>
+          </ul>
+        </table>
+      </div>
+    <% end %>
+  </center>
+  <center>
+      <table border ="1" bgcolor="AliceBlue" style="margin-top: 100px;">
+      <tr bgcolor="black">
+        <td colspan="11"> <div class="left-align"><fontcolr="white"> <%=link_to("Sign out",{:controller => 'users',:action=>'login'}) %></font></div><div><font color="yellow"><b>&nbsp;&nbsp;<%= flash[:notice] %></b></font></div><center><div><font color="white"><b>PRODUCTS AVAILABLE</b></font></div></td>
+      </tr>
+      <tr bgcolor="black">
+        <td><font color="white">Id</font></td>
+        <td><font color="white">Select </font></td>
+        <td><font color="white">Category </font></td>
+        <td><font color="white">Sub Category</font></td>
+        <td><font color="white">Type</font></td>
+        <td><font color="white">Model</font></td>
+        <td><font color="white">Company</font></td>
+        <td><font color="white">Stock</font></td>
+        <td><font color="white">Price Per Product</font></td>
+        <td><font color="white">Quantity</font></td>
+      </tr>
+      <% for products in @products %>
+        <tr>
+          <td><center><%= products.id %></center></font></td>
+          <td> <%=  check_box_tag("orders[products][]", products.id) %></td>
+          <%#= check_box_tag(:products, "products") %>
+          <td><%= products.product_cat %></td>
+          <td><%= products.product_sub_cat %></td>
+          <td><%= products.product_name %></td>
+          <td><%= products.product_model %></td>
+          <td><%= products.product_company %></td>
+          <td><%= products.product_stock %></td>
+          <td><%= products.price_per_piece %></td>
+          <td><%= text_field_tag("orders[quantity][]") %></td>
+        </tr>
+      <% end %>
+      <tr bgcolor="black">
+
+        <td colspan="10"><center><font color="white"><b>SHIPPING & BILLING ADDRESS</b></font></center></td>
+
+      </tr>
+      <tr>
+        <td colspan="3" bgcolor="black"><font color="white">Shipping Address</font></td>
+        <td><%= text_area_tag("orders[shipping_address]") %></td>
+        <td colspan="2" bgcolor="black"><font color="white">Billing Address</font></td>
+        <td><%= text_area_tag("orders[billing_address]") %></td>
+      </tr>
+      <tr bgcolor="black">
+
+        <td colspan="11"><center><%= submit_tag "Order Now"%></font><font color="white"> <b>|</b> </font><%= submit_tag("Reset", {:name => 'reset' ,:type => "reset" }) %></center></td>
+      </tr>
+    </table>
+  </center>
+</body>
